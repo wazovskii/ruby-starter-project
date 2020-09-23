@@ -1,5 +1,5 @@
 class HelloWorld
   def hello
-    'world'
+    "world"
   end
 end

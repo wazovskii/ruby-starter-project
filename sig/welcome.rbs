@@ -1,0 +1,7 @@
+class Welcome
+  attr_accessor name: String
+
+  def initialize: (String name) -> void
+
+  def greet: () -> ::String
+end

@@ -1,7 +1,31 @@
-class Welcome
-  attr_accessor name: String
+class Temperature
+  attr_accessor inLetter: String
+  attr_accessor outLetter: String
+  attr_accessor num: Float
 
-  def initialize: (String name) -> void
+  def initialize: (String inLetter, String outLetter, Float num) -> void
 
-  def greet: () -> ::String
+  def from_k: () -> ::String
+  def from_f: () -> ::String
+  def from_c: () -> ::String
+  def calculate: () -> ::String
+  def print: () -> void
+end
+
+class Context
+  attr_accessor state: State
+  attr_accessor temperature: Temperature
+  # private state: State
+
+  def initialize: (State state, Temperature temperature) -> void
+  def transition_to: (State state, Temperature temperature) ->void
+
+  def request1: () -> void   
+end
+
+class State
+  attr_accessor context: Context
+  attr_accessor temperature: Temperature
+
+  def handle1: () -> void
 end

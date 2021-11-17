@@ -1,11 +1,15 @@
-require './lib/welcome'
+require './lib/temperature'
+require './lib/state'
+require './lib/calculation_state'
+require './lib/print_state'
+require './lib/init_state'
+require './lib/context'
 
 RSpec.describe Temperature do
   describe '#From D to C calculation value 0' do
     subject do
       temperature = Temperature.new('D', 'C', 0)
       context = Context.new(InitState.new, temperature)
-      context.request1
       context.request1
       temperature.result
     end
@@ -17,7 +21,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('C', 'M', 0)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -27,7 +30,6 @@ RSpec.describe Temperature do
     subject do
       temperature = Temperature.new('C', 'F', 3)
       context = Context.new(InitState.new, temperature)
-      context.request1
       context.request1
       temperature.result
     end
@@ -39,7 +41,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('C', 'K', 30)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -49,7 +50,6 @@ RSpec.describe Temperature do
     subject do
       temperature = Temperature.new('C', 'C', 5)
       context = Context.new(InitState.new, temperature)
-      context.request1
       context.request1
       temperature.result
     end
@@ -61,7 +61,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('K', 'F', 5)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -72,7 +71,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('K', 'C', 50)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -82,7 +80,6 @@ RSpec.describe Temperature do
     subject do
       temperature = Temperature.new('K', 'K', 555)
       context = Context.new(InitState.new, temperature)
-      context.request1
       context.request1
       temperature.result
     end
@@ -95,7 +92,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('F', 'K', 10)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -105,7 +101,6 @@ RSpec.describe Temperature do
     subject do
       temperature = Temperature.new('F', 'K', 100)
       context = Context.new(InitState.new, temperature)
-      context.request1
       context.request1
       temperature.result
     end
@@ -117,7 +112,6 @@ RSpec.describe Temperature do
       temperature = Temperature.new('F', 'F', 1000)
       context = Context.new(InitState.new, temperature)
       context.request1
-      context.request1
       temperature.result
     end
 
@@ -127,7 +121,6 @@ RSpec.describe Temperature do
     subject do
       temperature = Temperature.new('F', 'M', 1000)
       temperature.from_f
-      # temperature.result
     end
     it { is_expected.to eq 'wrong output letter' }
   end
